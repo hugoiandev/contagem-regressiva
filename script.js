@@ -6,20 +6,20 @@ const horas = document.querySelector('.horas-js')
 const minutos = document.querySelector('.minutos-js')
 const segundos = document.querySelector('.segundos-js')
 
-
 const horaAtual = new Date
 const horaAlvo = new Date(horaAtual.getFullYear() + 1, 0, 0)
 const intervalHoras = 60 * 60000
 const intervalMinutes = 60 * 1000
 const intervalSecond = 1000
 const intervalDias = intervalHoras * 24
+const milissegundos = horaAlvo - horaAtual
 
-let totalMeses = horaAlvo.getMonth() - horaAtual.getMonth()
-let totalSemanas = totalMeses * 4
-let totalDias = totalSemanas * 7
-let totalHoras = totalDias * 24 - horaAtual.getHours()
-let totalMinutos = totalHoras * 60 - horaAtual.getMinutes()
-let totalSegundos = totalMinutos * 60 - horaAtual.getSeconds()
+let totalSegundos = Math.floor(milissegundos / 1000)
+let totalMinutos = Math.floor(totalSegundos / 60)
+let totalHoras = Math.floor(totalMinutos / 60)
+let totalDias = Math.floor(totalHoras / 24)
+let totalSemanas = Math.floor(totalDias / 7)
+let totalMeses = Math.floor(totalSemanas / 4)
 
 function iniciaContagem() {
     titulo.innerText = `Contagem regressiva para o ano de ${horaAtual.getFullYear() + 1}`
