@@ -19,7 +19,7 @@ let totalMinutos = Math.floor(totalSegundos / 60)
 let totalHoras = Math.floor(totalMinutos / 60)
 let totalDias = Math.floor(totalHoras / 24)
 let totalSemanas = Math.floor(totalDias / 7)
-let totalMeses = Math.floor(totalSemanas / 4)
+let totalMeses = Math.floor((totalSemanas / 4) - 1)
 
 function iniciaContagem() {
     titulo.innerText = `Contagem regressiva para o ano de ${horaAtual.getFullYear() + 1}`
